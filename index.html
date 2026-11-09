@@ -1883,6 +1883,7 @@
                 playsinline 
                 webkit-playsinline
                 preload="auto"
+                poster="assets/video/hero-poster.jpg"
                 disablePictureInPicture
             >
                 <source src="hero-villa.mp4" type="video/mp4">
@@ -1894,7 +1895,11 @@
                     var v = document.getElementById('heroVideo');
                     if (v) {
                         v.muted = true;
-                        v.play().catch(function() {});
+                        var go = function() { if (v.paused) { var p = v.play(); if (p && p.catch) p.catch(function() {}); } };
+                        go();
+                        v.addEventListener('canplay', go);
+                        document.addEventListener('visibilitychange', go);
+                        ['touchstart', 'click', 'scroll'].forEach(function(ev) { window.addEventListener(ev, go, { once: true, passive: true }); });
                     }
                 })();
             </script>
