@@ -1802,6 +1802,57 @@
         .ms-arrows button { width:42px; height:42px; border-radius:50%; margin-left:8px; border:1px solid rgba(222,155,96,.5); color:#DE9B60; background:transparent; cursor:pointer; transition:all .3s; }
         .ms-arrows button:hover { background:#DE9B60; color:#1a120a; }
         .ms-cta { display:flex; justify-content:center; margin-top:40px; }
+    
+        /* ===== Font tiêu đề lớn: SVN-Mightiest (chỉ cỡ chữ lớn; chữ nhỏ/đoạn dài giữ font cũ cho dễ đọc) ===== */
+        @font-face { font-family:'SVN-Mightiest'; src:url('SVN-Mightiest.otf') format('opentype'); font-weight:normal; font-style:normal; font-display:swap; }
+        h1.font-serif, h2.font-serif, .vv-h3, .vv-num, .ms-body h3, .mansion-banner-title,
+        h3.font-serif[class*="text-3xl"], h3.font-serif[class*="text-4xl"], h3.font-serif[class*="text-5xl"] {
+            font-family:'SVN-Mightiest','SVN-North Carossela',Georgia,serif !important; font-style:normal !important; font-synthesis:none; text-transform:uppercase;
+        }
+        h1 .italic, h2 .italic, h3 .italic, .vv-h2 em, .ms-head h2 em { font-style:normal !important; }
+    
+        /* Soát độ dễ đọc: font mảnh cần màu đậm hơn trên nền sáng; thẻ dự án thu gọn giữ font cũ để không bị cắt tên */
+        body:not(.dark-theme) h2.font-serif .text-km-teal, body:not(.dark-theme) h3.font-serif.text-km-teal, body:not(.dark-theme) h2.font-serif .text-km-accent { color:#7A5A2E !important; }
+        body:not(.dark-theme) .footer-title .italic, body:not(.dark-theme) .footer-title span { color:#8E6334 !important; }
+        .mansion-collapsed-badge h3.font-serif { white-space:normal !important; overflow:visible !important; text-overflow:clip !important; font-size:22px; line-height:1.15; }
+    
+        /* ===== Chuyên gia: lưới ảnh + popup ===== */
+        .sp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+        @media (max-width:767px){ .sp-grid { grid-template-columns:repeat(2,1fr); gap:10px; } }
+        .sp-tile { position:relative; aspect-ratio:4/5; border-radius:20px; overflow:hidden; border:0; padding:0; cursor:pointer; background:#15110e; text-align:left; }
+        .sp-tile img { width:100%; height:100%; object-fit:cover; transition:transform 1.2s cubic-bezier(.2,.7,.2,1); }
+        .sp-tile:hover img { transform:scale(1.07); }
+        .sp-shade { position:absolute; inset:0; background:linear-gradient(to top,rgba(8,6,4,.9) 6%,rgba(8,6,4,.1) 60%); }
+        .sp-num { position:absolute; top:14px; left:14px; width:36px; height:36px; border-radius:50%; background:rgba(222,155,96,.95); color:#1a120a; font:700 12px/36px 'Montserrat',sans-serif; text-align:center; }
+        .sp-info { position:absolute; left:16px; right:16px; bottom:16px; color:#fff; }
+        .sp-info b { display:block; font:600 15px/1.3 'Montserrat',sans-serif; }
+        .sp-info small { display:block; margin-top:4px; font:300 12px/1.4 'Montserrat',sans-serif; color:#e4ded3; }
+        @media (max-width:767px){ .sp-info b{ font-size:13px; } .sp-info small{ display:none; } }
+        .sp-modal { position:fixed; inset:0; z-index:200; background:rgba(0,0,0,.8); display:flex; align-items:center; justify-content:center; padding:20px; }
+        .sp-modal[hidden] { display:none; }
+        .sp-panel { position:relative; width:min(640px,100%); max-height:90vh; overflow:auto; background:#fff; color:#111; border-radius:24px; padding:24px; }
+        .dark-theme .sp-panel { background:#120F0D; color:#F3F4F6; }
+        .sp-x { position:absolute; top:10px; right:16px; z-index:2; font-size:34px; line-height:1; color:#fff; background:none; border:0; cursor:pointer; text-shadow:0 1px 6px rgba(0,0,0,.6); }
+        .sp-desc, .sp-li { color:inherit; }
+        .sp-quote { background:#F8F6F0; border-color:#8E6334; color:#111; }
+        .dark-theme .sp-quote { background:rgba(255,255,255,.05); border-color:#DE9B60; color:#fff; }
+        /* ===== Dự án: Viên Villa đổi ảnh luân phiên ===== */
+        @keyframes pjFadeA { 0%,28%{opacity:0} 38%,62%{opacity:1} 72%,100%{opacity:0} }
+        @keyframes pjFadeB { 0%,62%{opacity:0} 72%,95%{opacity:1} 100%{opacity:0} }
+        .pj-x1 { opacity:0; animation:pjFadeA 18s ease-in-out infinite; }
+        .pj-x2 { opacity:0; animation:pjFadeB 18s ease-in-out infinite; }
+        /* ===== Thẻ "Dành cho ai": màn hình cảm ứng không có hover nên hiện chữ sẵn ===== */
+        @media (hover:none) {
+            #danh-cho-ai .group > div:nth-of-type(2) { opacity:1 !important; }
+            #danh-cho-ai .group .grid { grid-template-rows:1fr !important; }
+            #danh-cho-ai .group p { opacity:1 !important; }
+        }
+    
+        /* ===== Font Mightiest cho mọi chữ serif cỡ vừa/lớn; chỉ chữ rất nhỏ giữ font cũ ===== */
+        .font-serif { font-family:'SVN-Mightiest','SVN-North Carossela',Georgia,serif !important; font-style:normal !important; font-synthesis:none; text-transform:uppercase; }
+        h5.font-serif, .footer-col-title, .specialist-title, .specialist-num, .sp-quote, footer a.footer-title { font-family:'SVN-North Carossela',Georgia,serif !important; }
+        /* Câu trích / đoạn dài: viết thường, giãn dòng để dễ đọc */
+        p.font-serif, blockquote.font-serif, .testimonial-quote, .mansion-banner-subtitle, .sp-quote { text-transform:none !important; line-height:1.4 !important; letter-spacing:0 !important; }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-km-teal selection:text-white">
@@ -2028,7 +2079,7 @@
         </section>
 
         <!-- 3. Homestyling dành cho ai ? -->
-        <section class="max-w-[1200px] mx-auto px-6 w-full relative py-20">
+        <section id="danh-cho-ai" class="max-w-[1200px] mx-auto px-6 w-full relative py-20">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-5xl md:text-6xl font-serif text-km-dark mb-6">
                     Homestyling <span class="text-km-teal italic font-medium">dành cho ai?</span>
@@ -2044,7 +2095,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-0"></div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30 z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
                     <div class="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-8">
-                        <h3 class="font-serif text-xl sm:text-2xl lg:text-[23px] font-medium tracking-wide text-white transition-transform duration-500 ease-out transform group-hover:-translate-y-2 whitespace-nowrap">Bạn là ai?</h3>
+                        <h3 class="font-serif text-xl sm:text-2xl lg:text-[23px] font-medium tracking-wide text-white transition-transform duration-500 ease-out transform group-hover:-translate-y-2">Bạn là ai?</h3>
                         <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-in-out">
                             <div class="overflow-hidden">
                                 <p class="font-sans font-light text-sm md:text-base leading-relaxed text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150">Doanh nhân, nhà sưu tầm, hay gia chủ xây di sản đầu tiên.</p>
@@ -2058,7 +2109,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-0"></div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30 z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
                     <div class="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-8">
-                        <h3 class="font-serif text-xl sm:text-2xl lg:text-[23px] font-medium tracking-wide text-white transition-transform duration-500 ease-out transform group-hover:-translate-y-2 whitespace-nowrap">Điều bạn đang đau đáu?</h3>
+                        <h3 class="font-serif text-xl sm:text-2xl lg:text-[23px] font-medium tracking-wide text-white transition-transform duration-500 ease-out transform group-hover:-translate-y-2">Điều bạn đang đau đáu?</h3>
                         <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-in-out">
                             <div class="overflow-hidden">
                                 <p class="font-sans font-light text-sm md:text-base leading-relaxed text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150">Khó tìm người thực sự hiểu bạn. Thiết kế, thi công đầy phiền toái.</p>
@@ -2072,7 +2123,7 @@
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10 transition-opacity duration-500 group-hover:opacity-0"></div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-black/30 z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
                     <div class="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-8">
-                        <h3 class="font-serif text-xl sm:text-2xl lg:text-[23px] font-medium tracking-wide text-white transition-transform duration-500 ease-out transform group-hover:-translate-y-2 whitespace-nowrap">Điều bạn thực sự cần?</h3>
+                        <h3 class="font-serif text-xl sm:text-2xl lg:text-[23px] font-medium tracking-wide text-white transition-transform duration-500 ease-out transform group-hover:-translate-y-2">Điều bạn thực sự cần?</h3>
                         <div class="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-in-out">
                             <div class="overflow-hidden">
                                 <p class="font-sans font-light text-sm md:text-base leading-relaxed text-gray-200 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150">Không chỉ đẹp — mà là di sản độc bản, hành trình suôn sẻ.</p>
@@ -2293,138 +2344,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Khối Chi Tiết Accordion Homestyling Làm Gì (Thích ứng Theme) -->
-            <div class="accordion-block-container relative rounded-3xl overflow-hidden p-8 sm:p-12 lg:p-16 shadow-2xl transition-all duration-500">
-
-                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-                    
-                    <div class="space-y-8 lg:pr-8">
-                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DE9B60]/15 border border-[#DE9B60]/40">
-                            <span class="w-2 h-2 rounded-full bg-[#DE9B60]"></span>
-                            <span class="font-sans text-[11px] font-bold tracking-[0.25em] uppercase text-[#DE9B60]">Hành Trình Thực Thi</span>
-                        </div>
-                        <h2 class="accordion-block-heading font-serif text-4xl sm:text-5xl md:text-6xl leading-tight font-medium">
-                            Homestyling <span class="text-km-accent italic">làm gì?</span>
-                        </h2>
-                        
-                        <div class="accordion-block-desc space-y-6 font-light text-base md:text-lg leading-relaxed">
-                            <p><strong class="text-km-accent font-bold">MANSION</strong> là hành trình 7 bước tinh hoa, được thiết kế để biến dinh thự của bạn thành một di sản độc bản.</p>
-                            <p>Từ ý tưởng đầu tiên cho đến khi vận hành thực tế, chúng tôi đồng hành cùng bạn, đảm bảo mỗi chi tiết đều là một nét chạm hoàn mỹ, phản ánh trọn vẹn phong cách và câu chuyện của gia đình.</p>
-                        </div>
-
-                        <div class="pt-4">
-                            <a href="#form-tu-van" class="km-btn-base km-btn-dark">
-                                <span>Đặt Lịch Cố Vấn &rarr;</span>
-                            </a>
-                        </div>
-                    </div>
-
-                <div class="accordion-inner-panel p-6 md:p-10 w-full rounded-2xl transition-all duration-500">
-                    <div class="space-y-1" id="accordion-container">
-                        <!-- Accordion Items (Tiêu đề font-medium thanh lịch, sang trọng theo chuẩn nhận diện mới) -->
-                        <div class="accordion-item active accordion-item-border pb-1">
-                            <button class="w-full py-4 flex items-center justify-between text-left relative focus:outline-none group" onclick="toggleAccordion(this)">
-                                <span class="accordion-item-title font-sans text-base md:text-[17px] tracking-widest transition-colors uppercase group-hover:text-km-accent font-medium">
-                                    <span class="text-km-accent">M</span>ANIFEST - BIỂU LỘ
-                                </span>
-                                <svg class="accordion-icon w-5 h-5 text-gray-500 group-hover:text-km-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="accordion-inner">
-                                    <p class="pb-6 pr-8 accordion-item-desc font-light text-sm md:text-[15px] leading-relaxed">Nhận diện Gia chủ - Thấu hiểu sâu sắc bản ngã và phong cách sống, tạo nền tảng định hướng xuyên suốt cho mọi dự án của gia đình.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item accordion-item-border pb-1">
-                            <button class="w-full py-4 flex items-center justify-between text-left relative focus:outline-none group" onclick="toggleAccordion(this)">
-                                <span class="accordion-item-title font-sans text-base md:text-[17px] tracking-widest transition-colors uppercase group-hover:text-km-accent font-medium">
-                                    <span class="text-km-accent">A</span>LIGN - HÒA QUYỆN
-                                </span>
-                                <svg class="accordion-icon w-5 h-5 text-gray-500 group-hover:text-km-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="accordion-inner">
-                                    <p class="pb-6 pr-8 accordion-item-desc font-light text-sm md:text-[15px] leading-relaxed">Nhận diện Dự án - Đồng bộ hóa tầm nhìn, thiết lập bài toán chuẩn mực cho Ban quản lý dự án nhằm đảm bảo tiêu chuẩn khắt khe nhất.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item accordion-item-border pb-1">
-                            <button class="w-full py-4 flex items-center justify-between text-left relative focus:outline-none group" onclick="toggleAccordion(this)">
-                                <span class="accordion-item-title font-sans text-base md:text-[17px] tracking-widest transition-colors uppercase group-hover:text-km-accent font-medium">
-                                    <span class="text-km-accent">N</span>AVIGATE - DẪN LỐI
-                                </span>
-                                <svg class="accordion-icon w-5 h-5 text-gray-500 group-hover:text-km-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="accordion-inner">
-                                    <p class="pb-6 pr-8 accordion-item-desc font-light text-sm md:text-[15px] leading-relaxed">Định hướng thiết kế - Vạch ra đường lối thẩm mỹ và công năng độc bản, dẫn dắt quá trình sáng tạo của đơn vị thiết kế.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item accordion-item-border pb-1">
-                            <button class="w-full py-4 flex items-center justify-between text-left relative focus:outline-none group" onclick="toggleAccordion(this)">
-                                <span class="accordion-item-title font-sans text-base md:text-[17px] tracking-widest transition-colors uppercase group-hover:text-km-accent font-medium">
-                                    <span class="text-km-accent">S</span>CULPT - CHẠM KHẮC
-                                </span>
-                                <svg class="accordion-icon w-5 h-5 text-gray-500 group-hover:text-km-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="accordion-inner">
-                                    <p class="pb-6 pr-8 accordion-item-desc font-light text-sm md:text-[15px] leading-relaxed">Tối ưu phương án Thiết kế - Tinh chỉnh, gọt giũa và hoàn thiện từng đường nét, biến ý tưởng thành những bản vẽ hoàn mỹ nhất.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item accordion-item-border pb-1">
-                            <button class="w-full py-4 flex items-center justify-between text-left relative focus:outline-none group" onclick="toggleAccordion(this)">
-                                <span class="accordion-item-title font-sans text-base md:text-[17px] tracking-widest transition-colors uppercase group-hover:text-km-accent font-medium">
-                                    <span class="text-km-accent">I</span>MPRINT - GHI DẤU
-                                </span>
-                                <svg class="accordion-icon w-5 h-5 text-gray-500 group-hover:text-km-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="accordion-inner">
-                                    <p class="pb-6 pr-8 accordion-item-desc font-light text-sm md:text-[15px] leading-relaxed">Tối ưu phương án Thi công - Giám sát khắt khe, đảm bảo tính nguyên bản và độ tinh xảo được hiện thực hóa trong quá trình xây dựng.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item accordion-item-border pb-1">
-                            <button class="w-full py-4 flex items-center justify-between text-left relative focus:outline-none group" onclick="toggleAccordion(this)">
-                                <span class="accordion-item-title font-sans text-base md:text-[17px] tracking-widest transition-colors uppercase group-hover:text-km-accent font-medium">
-                                    <span class="text-km-accent">O</span>UTFIT - ĐIỂM TRANG
-                                </span>
-                                <svg class="accordion-icon w-5 h-5 text-gray-500 group-hover:text-km-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="accordion-inner">
-                                    <p class="pb-6 pr-8 accordion-item-desc font-light text-sm md:text-[15px] leading-relaxed">Tối ưu trải nghiệm - Nâng tầm không gian bằng nghệ thuật sắp đặt nội ngoại thất, khơi dậy xúc cảm trong từng trải nghiệm sống.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item pb-1">
-                            <button class="w-full py-4 flex items-center justify-between text-left relative focus:outline-none group" onclick="toggleAccordion(this)">
-                                <span class="accordion-item-title font-sans text-base md:text-[17px] tracking-widest transition-colors uppercase group-hover:text-km-accent font-medium">
-                                    <span class="text-km-accent">N</span>OURISH - BỒI ĐẮP
-                                </span>
-                                <svg class="accordion-icon w-5 h-5 text-gray-500 group-hover:text-km-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path></svg>
-                            </button>
-                            <div class="accordion-content">
-                                <div class="accordion-inner">
-                                    <p class="pb-4 pr-8 accordion-item-desc font-light text-sm md:text-[15px] leading-relaxed">Tối ưu Vận hành - Đồng hành bảo tồn và không ngừng nâng tầm giá trị di sản qua thời gian.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            </div>
         </section>
 
         <!-- 5. 7 Bước Maison -->
@@ -2454,7 +2373,7 @@
                 </div>
             </article>
             <article class="ms-card" data-chap="0">
-                <img src="assets/img/vv-031.jpg" alt="Align" loading="lazy">
+                <video class="vv-autoplay" muted loop playsinline preload="metadata" poster="assets/video/s-align.jpg" aria-label="Align"><source src="assets/video/s-align.mp4" type="video/mp4"></video>
                 <span class="ms-shade"></span>
                 
                 <span class="ms-letter" aria-hidden="true">A</span>
@@ -2478,7 +2397,7 @@
                 </div>
             </article>
             <article class="ms-card" data-chap="1">
-                <img src="assets/img/vv-165.jpg" alt="Sculpt" loading="lazy">
+                <video class="vv-autoplay" muted loop playsinline preload="metadata" poster="assets/video/s-sculpt.jpg" aria-label="Sculpt"><source src="assets/video/s-sculpt.mp4" type="video/mp4"></video>
                 <span class="ms-shade"></span>
                 
                 <span class="ms-letter" aria-hidden="true">S</span>
@@ -2490,7 +2409,7 @@
                 </div>
             </article>
             <article class="ms-card" data-chap="2">
-                <img src="assets/img/vv-163.jpg" alt="Imprint" loading="lazy">
+                <video class="vv-autoplay" muted loop playsinline preload="metadata" poster="assets/video/s-imprint.jpg" aria-label="Imprint"><source src="assets/video/s-imprint.mp4" type="video/mp4"></video>
                 <span class="ms-shade"></span>
                 <span class="ms-chap">Hoàn thiện</span>
                 <span class="ms-letter" aria-hidden="true">I</span>
@@ -2502,7 +2421,7 @@
                 </div>
             </article>
             <article class="ms-card" data-chap="2">
-                <video class="vv-autoplay" muted loop playsinline preload="metadata" poster="assets/video/v-dining.jpg" aria-label="Outfit"><source src="assets/video/v-dining.mp4" type="video/mp4"></video>
+                <video class="vv-autoplay" muted loop playsinline preload="metadata" poster="assets/video/s-outfit.jpg" aria-label="Outfit"><source src="assets/video/s-outfit.mp4" type="video/mp4"></video>
                 <span class="ms-shade"></span>
                 
                 <span class="ms-letter" aria-hidden="true">O</span>
@@ -2609,162 +2528,11 @@
                     <p class="font-sans text-[#444444] dark:text-gray-400 text-sm mt-3">Chọn từng nhóm chuyên gia để tìm hiểu giá trị độc bản họ mang lại</p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                    <!-- Danh sách 9 nhóm chuyên gia (Clickable Buttons) -->
-                    <div class="lg:col-span-5 flex flex-col gap-2.5" id="specialistListContainer">
-                        <button type="button" onclick="selectSpecialist(0)" class="specialist-btn active w-full text-left p-4 sm:p-4.5 rounded-2xl border flex items-center justify-between group transition-all duration-300">
-                            <div class="flex items-center gap-3.5">
-                                <span class="specialist-num font-serif text-sm font-semibold w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all">01</span>
-                                <div>
-                                    <h5 class="specialist-title font-serif text-base tracking-wide transition-colors font-medium">Kiến trúc sư & Homestylist</h5>
-                                    <p class="specialist-role font-sans text-xs tracking-normal mt-0.5">Định hình phong cách & Cấu trúc cảm xúc</p>
-                                </div>
-                            </div>
-                            <div class="specialist-arrow-box w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0">
-                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </div>
-                        </button>
-                        <button type="button" onclick="selectSpecialist(1)" class="specialist-btn  w-full text-left p-4 sm:p-4.5 rounded-2xl border flex items-center justify-between group transition-all duration-300">
-                            <div class="flex items-center gap-3.5">
-                                <span class="specialist-num font-serif text-sm font-semibold w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all">02</span>
-                                <div>
-                                    <h5 class="specialist-title font-serif text-base tracking-wide transition-colors font-medium">Chuyên gia Tâm lý học Không gian</h5>
-                                    <p class="specialist-role font-sans text-xs tracking-normal mt-0.5">Thấu hiểu chiều sâu & Gắn kết 3 thế hệ</p>
-                                </div>
-                            </div>
-                            <div class="specialist-arrow-box w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0">
-                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </div>
-                        </button>
-                        <button type="button" onclick="selectSpecialist(2)" class="specialist-btn  w-full text-left p-4 sm:p-4.5 rounded-2xl border flex items-center justify-between group transition-all duration-300">
-                            <div class="flex items-center gap-3.5">
-                                <span class="specialist-num font-serif text-sm font-semibold w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all">03</span>
-                                <div>
-                                    <h5 class="specialist-title font-serif text-base tracking-wide transition-colors font-medium">Thiết kế Ánh sáng & Âm thanh</h5>
-                                    <p class="specialist-role font-sans text-xs tracking-normal mt-0.5">Đánh thức giác quan & Nhịp sinh học</p>
-                                </div>
-                            </div>
-                            <div class="specialist-arrow-box w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0">
-                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </div>
-                        </button>
-                        <button type="button" onclick="selectSpecialist(3)" class="specialist-btn  w-full text-left p-4 sm:p-4.5 rounded-2xl border flex items-center justify-between group transition-all duration-300">
-                            <div class="flex items-center gap-3.5">
-                                <span class="specialist-num font-serif text-sm font-semibold w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all">04</span>
-                                <div>
-                                    <h5 class="specialist-title font-serif text-base tracking-wide transition-colors font-medium">Nghệ nhân Thủ công & Vật liệu Hiếm</h5>
-                                    <p class="specialist-role font-sans text-xs tracking-normal mt-0.5">Chế tác độc bản & Giá trị truyền đời</p>
-                                </div>
-                            </div>
-                            <div class="specialist-arrow-box w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0">
-                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </div>
-                        </button>
-                        <button type="button" onclick="selectSpecialist(4)" class="specialist-btn  w-full text-left p-4 sm:p-4.5 rounded-2xl border flex items-center justify-between group transition-all duration-300">
-                            <div class="flex items-center gap-3.5">
-                                <span class="specialist-num font-serif text-sm font-semibold w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all">05</span>
-                                <div>
-                                    <h5 class="specialist-title font-serif text-base tracking-wide transition-colors font-medium">Giám tuyển Nghệ thuật & Cổ vật</h5>
-                                    <p class="specialist-role font-sans text-xs tracking-normal mt-0.5">Bảo chứng thẩm mỹ & Tầm nhìn gia tộc</p>
-                                </div>
-                            </div>
-                            <div class="specialist-arrow-box w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0">
-                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </div>
-                        </button>
-                        <button type="button" onclick="selectSpecialist(5)" class="specialist-btn  w-full text-left p-4 sm:p-4.5 rounded-2xl border flex items-center justify-between group transition-all duration-300">
-                            <div class="flex items-center gap-3.5">
-                                <span class="specialist-num font-serif text-sm font-semibold w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all">06</span>
-                                <div>
-                                    <h5 class="specialist-title font-serif text-base tracking-wide transition-colors font-medium">Chuyên gia Phong thủy Khí vận</h5>
-                                    <p class="specialist-role font-sans text-xs tracking-normal mt-0.5">Vượng khí trường tồn & An tâm tuyệt đối</p>
-                                </div>
-                            </div>
-                            <div class="specialist-arrow-box w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0">
-                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </div>
-                        </button>
-                        <button type="button" onclick="selectSpecialist(6)" class="specialist-btn  w-full text-left p-4 sm:p-4.5 rounded-2xl border flex items-center justify-between group transition-all duration-300">
-                            <div class="flex items-center gap-3.5">
-                                <span class="specialist-num font-serif text-sm font-semibold w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all">07</span>
-                                <div>
-                                    <h5 class="specialist-title font-serif text-base tracking-wide transition-colors font-medium">Chuyên gia Cảnh quan & Vi khí hậu</h5>
-                                    <p class="specialist-role font-sans text-xs tracking-normal mt-0.5">Giao hòa thiên nhiên & Ốc đảo riêng tư</p>
-                                </div>
-                            </div>
-                            <div class="specialist-arrow-box w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0">
-                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </div>
-                        </button>
-                        <button type="button" onclick="selectSpecialist(7)" class="specialist-btn  w-full text-left p-4 sm:p-4.5 rounded-2xl border flex items-center justify-between group transition-all duration-300">
-                            <div class="flex items-center gap-3.5">
-                                <span class="specialist-num font-serif text-sm font-semibold w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all">08</span>
-                                <div>
-                                    <h5 class="specialist-title font-serif text-base tracking-wide transition-colors font-medium">Chuyên gia Ẩm thực & Catering Độc bản</h5>
-                                    <p class="specialist-role font-sans text-xs tracking-normal mt-0.5">Bếp ăn thượng hạng & Tiệc tư gia đẳng cấp</p>
-                                </div>
-                            </div>
-                            <div class="specialist-arrow-box w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0">
-                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </div>
-                        </button>
-                        <button type="button" onclick="selectSpecialist(8)" class="specialist-btn  w-full text-left p-4 sm:p-4.5 rounded-2xl border flex items-center justify-between group transition-all duration-300">
-                            <div class="flex items-center gap-3.5">
-                                <span class="specialist-num font-serif text-sm font-semibold w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all">09</span>
-                                <div>
-                                    <h5 class="specialist-title font-serif text-base tracking-wide transition-colors font-medium">Cố vấn Quản gia & Vận hành Dinh thự</h5>
-                                    <p class="specialist-role font-sans text-xs tracking-normal mt-0.5">Chuẩn mực 6 sao & Dịch vụ hoàn hảo</p>
-                                </div>
-                            </div>
-                            <div class="specialist-arrow-box w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0">
-                                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </div>
-                        </button>
-                    </div>
-
-                    <!-- Thẻ chi tiết Interactive Showcase (Dynamic Content Panel) -->
-                    <div class="lg:col-span-7 rounded-3xl border-2 border-black/10 dark:border-white/10 bg-white dark:bg-[#120F0D] p-8 sm:p-10 shadow-2xl flex flex-col justify-between transition-all duration-500 min-h-[500px]" id="specialistDetailBox">
-                        <div id="specialistDetailContent">
-                        <div class="relative aspect-[16/9] rounded-2xl overflow-hidden mb-6 shadow-md border border-km-slate/10 dark:border-white/10">
-                            <img src="assets/img/vv-040.jpg" alt="Kiến trúc sư & Homestylist" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                            <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                                <div>
-                                    <span class="font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-[#DE9B60] bg-black/60 px-3 py-1 rounded-full backdrop-blur-md">Chuyên Gia 01 / 09</span>
-                                    <h4 class="font-serif text-2xl text-white mt-1.5 font-medium drop-shadow">Kiến trúc sư & Homestylist</h4>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="space-y-4">
-                            <div>
-                                <h5 class="text-xs font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] mb-2">Vai Trò Chiến Lược</h5>
-                                <p class="font-sans text-sm text-[#111111] dark:text-[#F3F4F6] leading-relaxed font-normal">Không chỉ dừng lại ở bản vẽ phối cảnh 3D khô khan, chúng tôi nghiên cứu nhịp thở và nếp sống của từng thành viên để định hình phong cách không gian đồng điệu với khí chất và vị thế của chủ nhân.</p>
-                            </div>
-
-                            <div class="pt-2 border-t border-black/10 dark:border-white/10">
-                                <h5 class="text-xs font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] mb-3">Điểm Chạm Đặc Quyền Trong Dinh Thự:</h5>
-                                <ul class="space-y-2">
-                                        <li class="flex items-start gap-2.5 text-xs text-[#111111] dark:text-[#E5E7EB] font-normal">
-                                            <span class="text-[#8E6334] dark:text-[#DE9B60] mt-0.5">✦</span>
-                                            <span>Cân bằng hoàn hảo giữa khối kiến trúc nguyên bản và nghệ thuật homestyling</span>
-                                        </li>
-                                        <li class="flex items-start gap-2.5 text-xs text-[#111111] dark:text-[#E5E7EB] font-normal">
-                                            <span class="text-[#8E6334] dark:text-[#DE9B60] mt-0.5">✦</span>
-                                            <span>Đảm bảo tỷ lệ vàng thị giác trong từng tầm nhìn từ sảnh đến tư phòng</span>
-                                        </li>
-                                        <li class="flex items-start gap-2.5 text-xs text-[#111111] dark:text-[#E5E7EB] font-normal">
-                                            <span class="text-[#8E6334] dark:text-[#DE9B60] mt-0.5">✦</span>
-                                            <span>Giám sát chuẩn mực thi công thực tế đạt 100% tinh thần thiết kế</span>
-                                        </li>
-                                </ul>
-                            </div>
-
-                            <blockquote class="p-4 rounded-xl bg-[#F8F6F0] dark:bg-white/5 border-l-4 border-[#8E6334] dark:border-[#DE9B60] italic font-serif text-sm text-[#111111] dark:text-white mt-3">
-                                "Kiến trúc là phần xác, còn Homestyling chính là linh hồn làm bừng sáng dinh thự."
-                            </blockquote>
-                        </div>
-                        </div>
+                <div id="specialistListContainer" class="sp-grid"></div>
+                <div id="spModal" class="sp-modal" hidden onclick="if(event.target===this)closeSpecialist()">
+                    <div class="sp-panel">
+                        <button type="button" class="sp-x" onclick="closeSpecialist()" aria-label="Đóng">&times;</button>
+                        <div id="specialistDetailContent"></div>
                     </div>
                 </div>
             </div>
@@ -2905,6 +2673,8 @@
                 <!-- Dinh thự 1: Viên Villa -->
                 <div class="mansion-card group relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer border border-black/10 dark:border-[#DE9B60]/20 hover:border-[#DE9B60]">
                     <img src="assets/img/vv-064.jpg" alt="Viên Villa" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" loading="lazy">
+                    <img src="assets/img/vv-049.jpg" alt="Viên Villa" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105 pj-x1" loading="lazy">
+                    <img src="assets/img/vv-040.jpg" alt="Viên Villa" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105 pj-x2" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10"></div>
                     <div class="mansion-dim-overlay absolute inset-0 bg-black opacity-0 transition-opacity duration-500 pointer-events-none z-10"></div>
 
@@ -2937,7 +2707,7 @@
 
                 <!-- Dinh thự 2: House of Legacy -->
                 <div class="mansion-card group relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer border border-black/10 dark:border-[#DE9B60]/20 hover:border-[#DE9B60]">
-                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="House of Legacy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" loading="lazy">
+                    <img src="assets/img/vv-168.jpg" alt="House of Legacy" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10"></div>
                     <div class="mansion-dim-overlay absolute inset-0 bg-black opacity-0 transition-opacity duration-500 pointer-events-none z-10"></div>
 
@@ -2970,7 +2740,7 @@
 
                 <!-- Dinh thự 3: Giandi Mansion -->
                 <div class="mansion-card group relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer border border-black/10 dark:border-[#DE9B60]/20 hover:border-[#DE9B60]">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Giandi Mansion" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" loading="lazy">
+                    <img src="assets/img/vv-052.jpg" alt="Giandi Mansion" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10"></div>
                     <div class="mansion-dim-overlay absolute inset-0 bg-black opacity-0 transition-opacity duration-500 pointer-events-none z-10"></div>
 
@@ -3003,7 +2773,7 @@
 
                 <!-- Dinh thự 4: The Ocean Crest (Sẵn sàng mở rộng thêm nhiều dinh thự) -->
                 <div class="mansion-card group relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer border border-black/10 dark:border-[#DE9B60]/20 hover:border-[#DE9B60]">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="The Ocean Crest" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" loading="lazy">
+                    <img src="assets/img/vv-044.jpg" alt="The Ocean Crest" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-black/10"></div>
                     <div class="mansion-dim-overlay absolute inset-0 bg-black opacity-0 transition-opacity duration-500 pointer-events-none z-10"></div>
 
@@ -3865,81 +3635,47 @@
             window.renderSpecialistsList = function() {
                 if (!specialistListContainer) return;
                 specialistListContainer.innerHTML = specialistsData.map((spec, idx) => `
-                    <button type="button" onclick="selectSpecialist(${idx})" class="specialist-btn ${idx === 0 ? 'active' : ''} w-full text-left p-4 sm:p-4.5 rounded-2xl border flex items-center justify-between group transition-all duration-300">
-                        <div class="flex items-center gap-3.5">
-                            <span class="specialist-num font-serif text-sm font-semibold w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all">${spec.number}</span>
-                            <div>
-                                <h5 class="specialist-title font-serif text-base tracking-wide transition-colors font-medium">${spec.title}</h5>
-                                <p class="specialist-role font-sans text-xs tracking-normal mt-0.5">${spec.role}</p>
-                            </div>
-                        </div>
-                        <div class="specialist-arrow-box w-8 h-8 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0">
-                            <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </div>
+                    <button type="button" class="sp-tile" onclick="selectSpecialist(${idx})" aria-label="${spec.title}">
+                        <img src="${spec.image}" alt="" loading="lazy">
+                        <span class="sp-shade"></span>
+                        <span class="sp-num">${spec.number}</span>
+                        <span class="sp-info"><b>${spec.title}</b><small>${spec.role}</small></span>
                     </button>
                 `).join('');
             };
 
             window.selectSpecialist = function(index) {
                 const spec = specialistsData[index];
-                if (!spec || !specialistDetailContent) return;
-
-                // Cập nhật trạng thái active của nút danh sách
-                const buttons = document.querySelectorAll('.specialist-btn');
-                buttons.forEach((btn, idx) => {
-                    if (idx === index) btn.classList.add('active');
-                    else btn.classList.remove('active');
-                });
-
-                // Cập nhật nội dung hiển thị chi tiết với hiệu ứng fade-in mượt mà
-                specialistDetailContent.style.opacity = '0';
-                specialistDetailContent.style.transform = 'translateY(10px)';
-                specialistDetailContent.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-
-                setTimeout(() => {
-                    specialistDetailContent.innerHTML = `
-                        <div class="relative aspect-[16/9] rounded-2xl overflow-hidden mb-6 shadow-md border border-km-slate/10 dark:border-white/10">
-                            <img src="${spec.image}" alt="${spec.title}" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                            <div class="absolute bottom-4 left-5 right-5 flex justify-between items-end">
-                                <div>
-                                    <span class="font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-[#DE9B60] bg-black/60 px-3 py-1 rounded-full backdrop-blur-md">Chuyên Gia ${spec.number} / 09</span>
-                                    <h4 class="font-serif text-2xl text-white mt-1.5 font-medium drop-shadow">${spec.title}</h4>
-                                </div>
-                            </div>
+                const modal = document.getElementById('spModal');
+                if (!spec || !specialistDetailContent || !modal) return;
+                specialistDetailContent.innerHTML = `
+                    <div class="relative aspect-[16/9] rounded-2xl overflow-hidden mb-5">
+                        <img src="${spec.image}" alt="${spec.title}" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        <div class="absolute bottom-4 left-5 right-5">
+                            <span class="font-sans text-[10px] font-bold uppercase tracking-[0.25em] text-[#DE9B60] bg-black/60 px-3 py-1 rounded-full">Chuyên Gia ${spec.number} / 09</span>
+                            <h4 class="font-serif text-2xl text-white mt-1.5 font-medium drop-shadow">${spec.title}</h4>
                         </div>
-
-                        <div class="space-y-4">
-                            <div>
-                                <h5 class="text-xs font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] mb-2">Vai Trò Chiến Lược</h5>
-                                <p class="font-sans text-sm text-[#111111] dark:text-[#F3F4F6] leading-relaxed font-normal">${spec.description}</p>
-                            </div>
-
-                            <div class="pt-2 border-t border-black/10 dark:border-white/10">
-                                <h5 class="text-xs font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] mb-3">Điểm Chạm Đặc Quyền Trong Dinh Thự:</h5>
-                                <ul class="space-y-2">
-                                    ${spec.deliverables.map(item => `
-                                        <li class="flex items-start gap-2.5 text-xs text-[#111111] dark:text-[#E5E7EB] font-normal">
-                                            <span class="text-[#8E6334] dark:text-[#DE9B60] mt-0.5">✦</span>
-                                            <span>${item}</span>
-                                        </li>
-                                    `).join('')}
-                                </ul>
-                            </div>
-
-                            <blockquote class="p-4 rounded-xl bg-[#F8F6F0] dark:bg-white/5 border-l-4 border-[#8E6334] dark:border-[#DE9B60] italic font-serif text-sm text-[#111111] dark:text-white mt-4 font-normal">
-                                "${spec.quote}"
-                            </blockquote>
-                        </div>
-                    `;
-                    specialistDetailContent.style.opacity = '1';
-                    specialistDetailContent.style.transform = 'translateY(0)';
-                }, 200);
+                    </div>
+                    <p class="sp-desc font-sans text-sm leading-relaxed mb-4">${spec.description}</p>
+                    <ul class="space-y-2 mb-4">
+                        ${spec.deliverables.map(item => `<li class="sp-li flex items-start gap-2.5 text-xs font-normal"><span style="color:#8E6334">✦</span><span>${item}</span></li>`).join('')}
+                    </ul>
+                    <blockquote class="sp-quote p-4 rounded-xl border-l-4 italic font-serif text-sm">"${spec.quote}"</blockquote>
+                `;
+                modal.hidden = false;
+                document.body.style.overflow = 'hidden';
             };
+
+            window.closeSpecialist = function() {
+                const modal = document.getElementById('spModal');
+                if (modal) modal.hidden = true;
+                document.body.style.overflow = '';
+            };
+            document.addEventListener('keydown', function(e) { if (e.key === 'Escape') window.closeSpecialist(); });
 
             // Khởi tạo hiển thị ban đầu
             renderSpecialistsList();
-            selectSpecialist(0);
 
             // ==============================================================
             // XỬ LÝ CHỌN LOẠI HÌNH DINH THỰ
@@ -4035,13 +3771,14 @@
         function ready(f){ if(document.readyState!=='loading') f(); else document.addEventListener('DOMContentLoaded',f); }
         ready(function(){
             var tr=document.getElementById('msTrack'); if(!tr) return;
-            var cards=[].slice.call(tr.querySelectorAll('.ms-card'));
+            var cards=[].slice.call(tr.querySelectorAll('.ms-card')), forced=null;
             function pad(){ return parseFloat(getComputedStyle(tr).paddingLeft)||0; }
-            function cur(){ var best=0,bd=1e9,x=tr.scrollLeft+pad(); cards.forEach(function(c,i){ var d=Math.abs(c.offsetLeft-x); if(d<bd){bd=d;best=i;} }); if(tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-4) best=cards.length-1; return best; }
-            function upd(){ var i=cur(); document.getElementById('msNow').textContent='0'+(i+1); document.getElementById('msBar').style.width=((i+1)/cards.length*100)+'%'; var ch=cards[i].getAttribute('data-chap'); document.querySelectorAll('.ms-tab').forEach(function(t){ t.classList.toggle('on',t.getAttribute('data-chap')===ch); }); }
+            function cur(){ var best=0,bd=1e9,x=tr.scrollLeft+pad(); cards.forEach(function(c,i){ var d=Math.abs(c.offsetLeft-x); if(d<bd){bd=d;best=i;} }); return best; }
+            function upd(){ var i=forced!==null?forced:cur(); document.getElementById('msNow').textContent='0'+(i+1); document.getElementById('msBar').style.width=((i+1)/cards.length*100)+'%'; var ch=cards[i].getAttribute('data-chap'); document.querySelectorAll('.ms-tab').forEach(function(t){ t.classList.toggle('on',t.getAttribute('data-chap')===ch); }); }
+            ['wheel','touchstart','pointerdown','keydown'].forEach(function(ev){ tr.addEventListener(ev,function(){ forced=null; },{passive:true}); });
             var tk=false; tr.addEventListener('scroll',function(){ if(!tk){ tk=true; requestAnimationFrame(function(){ upd(); tk=false; }); } },{passive:true});
-            function to(i){ i=Math.max(0,Math.min(cards.length-1,i)); tr.scrollTo({left:cards[i].offsetLeft-pad(),behavior:'smooth'}); }
-            window.msStep=function(d){ to(cur()+d); };
+            function to(i){ i=Math.max(0,Math.min(cards.length-1,i)); forced=i; upd(); tr.scrollTo({left:cards[i].offsetLeft-pad(),behavior:'smooth'}); }
+            window.msStep=function(d){ to((forced!==null?forced:cur())+d); };
             window.msGoChapter=function(k){ for(var i=0;i<cards.length;i++){ if(+cards[i].getAttribute('data-chap')===k){ to(i); break; } } };
             upd();
         });
