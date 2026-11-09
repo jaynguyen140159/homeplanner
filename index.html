@@ -1768,6 +1768,39 @@
         html.vv-js .vv-reveal { opacity:0; transform:translateY(28px); transition:opacity .9s ease, transform .9s ease; }
         html.vv-js .vv-reveal.vv-in { opacity:1; transform:none; }
         @media (prefers-reduced-motion:reduce){ html.vv-js .vv-reveal{ opacity:1; transform:none; } }
+    
+        /* ===== 7 BƯỚC MANSION: băng chuyền điện ảnh ngang ===== */
+        .ms { background:#0F0C0A; color:#F3EEE6; padding:88px 0 72px; overflow:hidden; }
+        .ms-wrap { max-width:1360px; margin:0 auto; padding:0 24px; }
+        @media (min-width:768px){ .ms-wrap{ padding:0 48px; } }
+        .ms-head { text-align:center; margin-bottom:36px; }
+        .ms-head h2 { font-size:clamp(36px,5.2vw,64px); line-height:1.1; color:#fff; }
+        .ms-head h2 em { color:#DE9B60; }
+        .ms-tabs { display:inline-flex; gap:6px; margin-top:24px; padding:5px; border:1px solid rgba(222,155,96,.35); border-radius:999px; }
+        .ms-tab { padding:9px 20px; border-radius:999px; font:600 11px 'Montserrat',sans-serif; letter-spacing:.2em; text-transform:uppercase; color:#cdc6ba; background:transparent; border:0; cursor:pointer; transition:all .3s; }
+        .ms-tab.on { background:#DE9B60; color:#1a120a; }
+        .ms-track { position:relative; display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding:8px max(24px,calc((100vw - 1264px)/2)) 20px; scrollbar-width:none; }
+        .ms-track::-webkit-scrollbar { display:none; }
+        .ms-end { flex:none; width:1px; }
+        .ms-card { position:relative; flex:none; width:min(78vw,380px); height:min(112vw,560px); border-radius:22px; overflow:hidden; scroll-snap-align:start; background:#15110e; }
+        .ms-card img, .ms-card video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 1.4s cubic-bezier(.2,.7,.2,1); }
+        .ms-card:hover img, .ms-card:hover video { transform:scale(1.06); }
+        .ms-shade { position:absolute; inset:0; background:linear-gradient(to top,rgba(8,6,4,.92) 8%,rgba(8,6,4,.25) 55%,rgba(8,6,4,.35)); }
+        .ms-chap { position:absolute; top:18px; left:18px; padding:6px 14px; border-radius:999px; background:rgba(222,155,96,.95); color:#1a120a; font:700 10px 'Montserrat',sans-serif; letter-spacing:.22em; text-transform:uppercase; }
+        .ms-letter { position:absolute; top:6px; right:18px; font:400 150px/1 'Cormorant Garamond',serif; color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.55); }
+        .ms-body { position:absolute; left:22px; right:22px; bottom:22px; }
+        .ms-n { font:700 10px 'Montserrat',sans-serif; letter-spacing:.25em; color:#DE9B60; }
+        .ms-body h3 { font-size:36px; line-height:1.1; color:#fff; margin:6px 0 2px; }
+        .ms-body em { display:block; font:italic 500 20px 'Cormorant Garamond',serif; color:#e9c79f; margin-bottom:10px; }
+        .ms-body p { font-size:14px; line-height:1.55; font-weight:300; color:#e4ded3; }
+        .ms-ctrl { display:flex; align-items:center; gap:20px; margin-top:12px; }
+        .ms-count { font:500 13px 'Montserrat',sans-serif; letter-spacing:.15em; color:#cdc6ba; white-space:nowrap; }
+        .ms-count b { color:#DE9B60; font-size:18px; }
+        .ms-bar { flex:1; height:2px; background:rgba(255,255,255,.18); border-radius:2px; overflow:hidden; }
+        .ms-bar i { display:block; height:100%; width:14%; background:#DE9B60; transition:width .4s; }
+        .ms-arrows button { width:42px; height:42px; border-radius:50%; margin-left:8px; border:1px solid rgba(222,155,96,.5); color:#DE9B60; background:transparent; cursor:pointer; transition:all .3s; }
+        .ms-arrows button:hover { background:#DE9B60; color:#1a120a; }
+        .ms-cta { display:flex; justify-content:center; margin-top:40px; }
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-km-teal selection:text-white">
@@ -2394,502 +2427,109 @@
              Chuyển bước mượt mà bằng nút Tiếp / Trước, Mũi tên & 7 Chip M-A-N-S-I-O-N
              Cuộn trang tự nhiên mượt mà, không khóa cuộn hay chiếm chiều cao ảo
         ============================================================== -->
-        <section id="7-buoc-mansion" class="w-full py-24 px-4 sm:px-6 md:px-12 max-w-[1400px] mx-auto transition-colors duration-500">
-            
-            <!-- Tiêu đề Section Cố Vấn 7 Bước -->
-            <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#DE9B60]/15 border border-[#DE9B60]/40 backdrop-blur-md mb-4">
-                    <span class="w-2 h-2 rounded-full bg-[#DE9B60] animate-pulse"></span>
-                    <span class="font-sans text-[11px] font-bold tracking-[0.25em] uppercase text-[#8E6334] dark:text-[#DE9B60]">
-                        Quy Trình Cố Vấn Độc Quyền
-                    </span>
-                </div>
-                <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl mb-4 leading-tight font-medium">
-                    7 Bước Tinh Hoa <span class="italic text-[#8E6334] dark:text-[#DE9B60]">Kiến tạo Di sản</span>
-                </h2>
-                <p class="leading-relaxed text-sm sm:text-base md:text-lg font-light text-km-stone dark:text-gray-300">
-                    Chu trình cố vấn <strong class="font-medium text-[#8E6334] dark:text-[#DE9B60]">MANSION</strong> — Bấm các nút chuyển bước hoặc chọn ký tự M-A-N-S-I-O-N để khám phá từng giai đoạn kiến tạo.
-                </p>
+<div id="7-buoc-mansion"></div>
+        <section id="mansion-steps" class="ms">
+            <div class="ms-wrap ms-head">
+                <span class="vv-kicker">Quy trình MANSION</span>
+                <h2 class="font-serif">7 bước, <em>một hành trình</em></h2>
+                <div class="ms-tabs"><button type="button" class="ms-tab on" data-chap="0" onclick="msGoChapter(0)">Kế hoạch</button><button type="button" class="ms-tab" data-chap="1" onclick="msGoChapter(1)">Ý tưởng</button><button type="button" class="ms-tab" data-chap="2" onclick="msGoChapter(2)">Hoàn thiện</button></div>
             </div>
-
-            <!-- Bố cục 2 Cột: Bên trái là Ảnh điện ảnh với Mũi tên & Chip, bên phải là Thẻ nội dung với Nút Tiếp/Trước -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch min-h-[520px]">
+            <div class="ms-track" id="msTrack">
+            <article class="ms-card" data-chap="0">
+                <video class="vv-autoplay" muted loop playsinline preload="metadata" poster="assets/video/v-owner.jpg" aria-label="Manifest"><source src="assets/video/v-owner.mp4" type="video/mp4"></video>
+                <span class="ms-shade"></span>
+                <span class="ms-chap">Kế hoạch</span>
+                <span class="ms-letter" aria-hidden="true">M</span>
+                <div class="ms-body">
+                    <span class="ms-n">01 / 07</span>
+                    <h3 class="font-serif">Manifest</h3>
+                    <em>Biểu lộ bản ngã</em>
+                    <p>Nhận diện gia chủ — thấu hiểu bản ngã và phong cách sống.</p>
+                </div>
+            </article>
+            <article class="ms-card" data-chap="0">
+                <img src="assets/img/vv-031.jpg" alt="Align" loading="lazy">
+                <span class="ms-shade"></span>
                 
-                <!-- CỘT TRÁI: KHUNG ẢNH LỚN VỚI MŨI TÊN & CHIP ĐIỀU HƯỚNG -->
-                <div class="lg:col-span-6 relative rounded-3xl overflow-hidden shadow-2xl border border-[#C4A97D]/40 bg-[#0E0C0A] min-h-[340px] sm:min-h-[420px] lg:min-h-[560px] flex flex-col justify-between">
-                    
-                    <!-- 7 Tấm ảnh chất lượng cao tương ứng với từng bước -->
-                    <div class="absolute inset-0 w-full h-full">
-                        <img id="mansionImg1" src="assets/img/vv-004.jpg" alt="Bước 1 - Manifest" class="mansion-step-image active absolute inset-0 w-full h-full object-cover" loading="lazy">
-                        <img id="mansionImg2" src="assets/img/vv-031.jpg" alt="Bước 2 - Align" class="mansion-step-image absolute inset-0 w-full h-full object-cover" loading="lazy">
-                        <img id="mansionImg3" src="assets/img/vv-028.jpg" alt="Bước 3 - Navigate" class="mansion-step-image absolute inset-0 w-full h-full object-cover" loading="lazy">
-                        <img id="mansionImg4" src="assets/img/vv-165.jpg" alt="Bước 4 - Sculpt" class="mansion-step-image absolute inset-0 w-full h-full object-cover" loading="lazy">
-                        <img id="mansionImg5" src="assets/img/vv-163.jpg" alt="Bước 5 - Imprint" class="mansion-step-image absolute inset-0 w-full h-full object-cover" loading="lazy">
-                        <img id="mansionImg6" src="assets/img/vv-125.jpg" alt="Bước 6 - Outfit" class="mansion-step-image absolute inset-0 w-full h-full object-cover" loading="lazy">
-                        <img id="mansionImg7" src="assets/img/vv-047.jpg" alt="Bước 7 - Nourish" class="mansion-step-image absolute inset-0 w-full h-full object-cover" loading="lazy">
-                    </div>
-
-                    <!-- Lớp phủ Gradient tương phản cao Film Noir -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40 pointer-events-none"></div>
-
-                    <!-- Badge thông tin bước góc trên ảnh -->
-                    <div class="relative z-10 m-4 sm:m-6 inline-flex self-start items-center gap-2 sm:gap-3 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-black/60 backdrop-blur-md border border-[#DE9B60]/40 shadow-lg">
-                        <span id="mansionStepIndex" class="font-sans text-xs sm:text-sm font-bold tracking-widest text-[#DE9B60]">BƯỚC 01 / 07</span>
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#DE9B60] animate-ping"></span>
-                        <span id="mansionStepLetter" class="font-sans text-[11px] sm:text-xs font-semibold tracking-widest uppercase text-white/95">M · MANIFEST</span>
-                    </div>
-
-                    <!-- 2 Nút Mũi Tên Trái / Phải Nổi Bật Trên Ảnh -->
-                    <button type="button" onclick="prevMansionStep()" aria-label="Bước trước" class="absolute left-3.5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-[#DE9B60] text-white hover:text-black border border-white/20 hover:border-[#DE9B60] flex items-center justify-center transition-all shadow-xl backdrop-blur-md group cursor-pointer">
-                        <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
-                    </button>
-                    <button type="button" onclick="nextMansionStep()" aria-label="Bước tiếp theo" class="absolute right-3.5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/60 hover:bg-[#DE9B60] text-white hover:text-black border border-white/20 hover:border-[#DE9B60] flex items-center justify-center transition-all shadow-xl backdrop-blur-md group cursor-pointer">
-                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-                    </button>
-
-                    <!-- Cụm điều khiển & thanh tiến trình 7 phân đoạn đồng bộ hoàn hảo -->
-                    <div class="relative z-10 m-4 sm:m-6 flex flex-col gap-3">
-                        <div class="flex items-center justify-between text-xs font-mono">
-                            <span id="mansionStepTitleBottom" class="text-xs sm:text-sm font-serif italic text-white drop-shadow tracking-wide">Biểu Lộ Bản Ngã</span>
-                            <span id="mansionProgressPercent" class="text-[#DE9B60] font-bold tracking-widest uppercase">BƯỚC 01 / 07</span>
-                        </div>
-
-                        <!-- 7 Phân đoạn Progress Bar: Mỗi phân đoạn nằm thẳng hàng tuyệt đối với từng chip M-A-N-S-I-O-N -->
-                        <div class="grid grid-cols-7 gap-2 w-full" id="mansionSegmentedBar">
-                            <div class="mansion-bar-segment h-1.5 rounded-full transition-all duration-500 bg-gradient-to-r from-[#8E6334] to-[#DE9B60] shadow-[0_0_8px_rgba(222,155,96,0.4)]" data-segment="1"></div>
-                            <div class="mansion-bar-segment h-1.5 rounded-full transition-all duration-500 bg-white/20" data-segment="2"></div>
-                            <div class="mansion-bar-segment h-1.5 rounded-full transition-all duration-500 bg-white/20" data-segment="3"></div>
-                            <div class="mansion-bar-segment h-1.5 rounded-full transition-all duration-500 bg-white/20" data-segment="4"></div>
-                            <div class="mansion-bar-segment h-1.5 rounded-full transition-all duration-500 bg-white/20" data-segment="5"></div>
-                            <div class="mansion-bar-segment h-1.5 rounded-full transition-all duration-500 bg-white/20" data-segment="6"></div>
-                            <div class="mansion-bar-segment h-1.5 rounded-full transition-all duration-500 bg-white/20" data-segment="7"></div>
-                        </div>
-
-                        <!-- 7 Chip điều hướng nhanh M-A-N-S-I-O-N: Căn chỉnh 100% thẳng hàng với từng thanh tiến trình -->
-                        <div class="grid grid-cols-7 gap-2 w-full pt-0.5">
-                            <div class="flex justify-center">
-                                <button type="button" onclick="setMansionActiveStep(1)" class="mansion-quick-dot active flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold transition-all cursor-pointer" data-step="1">M</button>
-                            </div>
-                            <div class="flex justify-center">
-                                <button type="button" onclick="setMansionActiveStep(2)" class="mansion-quick-dot flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold transition-all cursor-pointer" data-step="2">A</button>
-                            </div>
-                            <div class="flex justify-center">
-                                <button type="button" onclick="setMansionActiveStep(3)" class="mansion-quick-dot flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold transition-all cursor-pointer" data-step="3">N</button>
-                            </div>
-                            <div class="flex justify-center">
-                                <button type="button" onclick="setMansionActiveStep(4)" class="mansion-quick-dot flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold transition-all cursor-pointer" data-step="4">S</button>
-                            </div>
-                            <div class="flex justify-center">
-                                <button type="button" onclick="setMansionActiveStep(5)" class="mansion-quick-dot flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold transition-all cursor-pointer" data-step="5">I</button>
-                            </div>
-                            <div class="flex justify-center">
-                                <button type="button" onclick="setMansionActiveStep(6)" class="mansion-quick-dot flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold transition-all cursor-pointer" data-step="6">O</button>
-                            </div>
-                            <div class="flex justify-center">
-                                <button type="button" onclick="setMansionActiveStep(7)" class="mansion-quick-dot flex items-center justify-center w-7 h-7 rounded-full text-xs font-bold transition-all cursor-pointer" data-step="7">N</button>
-                            </div>
-                        </div>
-                    </div>
-
+                <span class="ms-letter" aria-hidden="true">A</span>
+                <div class="ms-body">
+                    <span class="ms-n">02 / 07</span>
+                    <h3 class="font-serif">Align</h3>
+                    <em>Hòa quyện</em>
+                    <p>Nhận diện dự án — đồng bộ tầm nhìn, đặt chuẩn mực cho cả đội ngũ.</p>
                 </div>
-
-                <!-- CỘT PHẢI: KHUNG CHỨA THẺ NỘI DUNG 7 BƯỚC (CHỈ HIỂN THỊ BƯỚC ĐANG CHỌN) -->
-                <div class="lg:col-span-6 relative min-h-[460px] sm:min-h-[500px] lg:min-h-[560px]">
-                            <!-- BƯỚC 1: M -->
-                            <div id="step-card-1" data-step="1" class="mansion-step-card active">
-                                <div class="flex items-center justify-between pb-3 border-b border-black/5 dark:border-white/10">
-                                    <span class="step-num-badge font-sans text-xs font-bold tracking-[0.25em] uppercase px-3.5 py-1 rounded-full">BƯỚC 01 / 07</span>
-                                    <span class="font-serif text-3xl sm:text-4xl font-light text-[#8E6334] dark:text-[#DE9B60]">M</span>
-                                </div>
-                                <div class="space-y-3 my-auto py-2">
-                                    <span class="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] block">Khởi tạo Bản ngã</span>
-                                    <h3 class="font-serif text-2xl sm:text-3xl font-medium leading-snug step-card-title">
-                                        MANIFEST – Biểu Lộ Bản Ngã Gia Chủ
-                                    </h3>
-                                    <p class="font-light text-sm sm:text-[15px] leading-relaxed step-card-desc">
-                                        Mọi dinh thự kiệt tác đều khởi sinh từ con người sở hữu nó. Khởi Minh lắng nghe sâu sắc câu chuyện gia tộc, thói quen sinh hoạt, quan niệm phong thủy và mỹ cảm tiềm ẩn của từng thành viên để phác thảo "ADN kiến trúc" độc bản.
-                                    </p>
-                                    <div class="space-y-2 pt-1 border-t border-black/5 dark:border-white/10">
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Khám phá tâm lý & phong cách sống chuyên sâu (Lifestyle Profile gia tộc)</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Thiết lập ma trận nhu cầu công năng & xúc cảm riêng tư cho từng thế hệ</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Định vị bài toán kiến trúc tổng quát và tiêu chuẩn khắt khe cho dự án</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- BẢNG ĐIỀU KHIỂN CHUYỂN BƯỚC TRỰC QUAN TRÊN THẺ -->
-                                <div class="pt-3 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                                    <a href="#form-tu-van" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#8E6334] dark:text-[#DE9B60] hover:underline group">
-                                        <span>Tư vấn giai đoạn này</span>
-                                        <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
-                                    </a>
-
-                                    <!-- Cụm nút chuyển bước Trước / Sau -->
-                                    <div class="flex items-center justify-end gap-2 shrink-0">
-                                        <button type="button" onclick="prevMansionStep()" class="px-3 py-1.5 rounded-full border border-black/15 dark:border-white/20 text-xs font-semibold text-[#1C1B1A] dark:text-gray-200 hover:border-[#8E6334] hover:text-[#8E6334] dark:hover:border-[#DE9B60] dark:hover:text-[#DE9B60] transition-all disabled:opacity-25 disabled:pointer-events-none flex items-center gap-1.5 cursor-pointer" disabled aria-label="Bước trước">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                                            <span class="hidden sm:inline">Trước</span>
-                                        </button>
-
-                                        <span class="text-xs font-mono font-bold text-[#8E6334] dark:text-[#DE9B60] px-2 py-1 rounded-md bg-[#8E6334]/10 dark:bg-[#DE9B60]/15">
-                                            01 / 07
-                                        </span>
-
-                                        <button type="button" onclick="nextMansionStep()" class="px-3.5 py-1.5 rounded-full bg-[#8E6334] dark:bg-[#DE9B60] text-white dark:text-[#0A0A0A] text-xs font-bold shadow-sm hover:opacity-90 transition-all flex items-center gap-1.5 cursor-pointer" aria-label="Bước tiếp theo">
-                                            <span>Bước tiếp</span>
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- BƯỚC 2: A -->
-                            <div id="step-card-2" data-step="2" class="mansion-step-card upcoming">
-                                <div class="flex items-center justify-between pb-3 border-b border-black/5 dark:border-white/10">
-                                    <span class="step-num-badge font-sans text-xs font-bold tracking-[0.25em] uppercase px-3.5 py-1 rounded-full">BƯỚC 02 / 07</span>
-                                    <span class="font-serif text-3xl sm:text-4xl font-light text-[#8E6334] dark:text-[#DE9B60]">A</span>
-                                </div>
-                                <div class="space-y-3 my-auto py-2">
-                                    <span class="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] block">Đồng bộ Tầm nhìn</span>
-                                    <h3 class="font-serif text-2xl sm:text-3xl font-medium leading-snug step-card-title">
-                                        ALIGN – Hòa Quyện Dự Án & Chuẩn Mực Ban QLDA
-                                    </h3>
-                                    <p class="font-light text-sm sm:text-[15px] leading-relaxed step-card-desc">
-                                        Chúng tôi đối chiếu bản ngã gia chủ với địa thế khu đất, hướng gió, tầm nhìn panorama và các yếu tố vi khí hậu tự nhiên. Khởi Minh đóng vai trò cố vấn chiến lược, đồng bộ hóa tầm nhìn cùng Ban quản lý dự án để đảm bảo tiêu chuẩn khắt khe nhất ngay từ ngày đầu.
-                                    </p>
-                                    <div class="space-y-2 pt-1 border-t border-black/5 dark:border-white/10">
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Phân tích địa hình, vi khí hậu, hướng nắng gió & cảnh quan sinh thái thực địa</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Thiết lập "Hiến chương Tiêu chuẩn Kỹ thuật & Mỹ thuật" độc quyền</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Quy chuẩn hóa quy trình điều phối & bảo mật thông tin tư gia tuyệt đối</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- BẢNG ĐIỀU KHIỂN CHUYỂN BƯỚC TRỰC QUAN TRÊN THẺ -->
-                                <div class="pt-3 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                                    <a href="#form-tu-van" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#8E6334] dark:text-[#DE9B60] hover:underline group">
-                                        <span>Tư vấn giai đoạn này</span>
-                                        <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
-                                    </a>
-
-                                    <!-- Cụm nút chuyển bước Trước / Sau -->
-                                    <div class="flex items-center justify-end gap-2 shrink-0">
-                                        <button type="button" onclick="prevMansionStep()" class="px-3 py-1.5 rounded-full border border-black/15 dark:border-white/20 text-xs font-semibold text-[#1C1B1A] dark:text-gray-200 hover:border-[#8E6334] hover:text-[#8E6334] dark:hover:border-[#DE9B60] dark:hover:text-[#DE9B60] transition-all disabled:opacity-25 disabled:pointer-events-none flex items-center gap-1.5 cursor-pointer"  aria-label="Bước trước">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                                            <span class="hidden sm:inline">Trước</span>
-                                        </button>
-
-                                        <span class="text-xs font-mono font-bold text-[#8E6334] dark:text-[#DE9B60] px-2 py-1 rounded-md bg-[#8E6334]/10 dark:bg-[#DE9B60]/15">
-                                            02 / 07
-                                        </span>
-
-                                        <button type="button" onclick="nextMansionStep()" class="px-3.5 py-1.5 rounded-full bg-[#8E6334] dark:bg-[#DE9B60] text-white dark:text-[#0A0A0A] text-xs font-bold shadow-sm hover:opacity-90 transition-all flex items-center gap-1.5 cursor-pointer" aria-label="Bước tiếp theo">
-                                            <span>Bước tiếp</span>
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- BƯỚC 3: N -->
-                            <div id="step-card-3" data-step="3" class="mansion-step-card upcoming">
-                                <div class="flex items-center justify-between pb-3 border-b border-black/5 dark:border-white/10">
-                                    <span class="step-num-badge font-sans text-xs font-bold tracking-[0.25em] uppercase px-3.5 py-1 rounded-full">BƯỚC 03 / 07</span>
-                                    <span class="font-serif text-3xl sm:text-4xl font-light text-[#8E6334] dark:text-[#DE9B60]">N</span>
-                                </div>
-                                <div class="space-y-3 my-auto py-2">
-                                    <span class="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] block">Định vị Không gian</span>
-                                    <h3 class="font-serif text-2xl sm:text-3xl font-medium leading-snug step-card-title">
-                                        NAVIGATE – Dẫn Lối & Tỷ Lệ Vàng Không Gian
-                                    </h3>
-                                    <p class="font-light text-sm sm:text-[15px] leading-relaxed step-card-desc">
-                                        Không áp đặt phong cách rập khuôn, Khởi Minh dẫn dắt và phản biện các đơn vị thiết kế để tìm ra phương án mặt bằng hoàn hảo. Từng cao độ trần, trục nhìn liên hoàn và sự chuyển tiếp liền mạch giữa thiên nhiên và nội thất đều được cân chỉnh theo tỷ lệ vàng thị giác.
-                                    </p>
-                                    <div class="space-y-2 pt-1 border-t border-black/5 dark:border-white/10">
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Cố vấn sơ đồ không gian phân lớp (Spatial Hierarchy) riêng tư & tiếp đón</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Khai phóng trục thị giác vô cực kết nối mặt nước, sân vườn và thông tầng</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Tối ưu hóa vi khí hậu thông minh, giảm bức xạ nhiệt và đón gió tươi tự nhiên</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- BẢNG ĐIỀU KHIỂN CHUYỂN BƯỚC TRỰC QUAN TRÊN THẺ -->
-                                <div class="pt-3 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                                    <a href="#form-tu-van" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#8E6334] dark:text-[#DE9B60] hover:underline group">
-                                        <span>Tư vấn giai đoạn này</span>
-                                        <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
-                                    </a>
-
-                                    <!-- Cụm nút chuyển bước Trước / Sau -->
-                                    <div class="flex items-center justify-end gap-2 shrink-0">
-                                        <button type="button" onclick="prevMansionStep()" class="px-3 py-1.5 rounded-full border border-black/15 dark:border-white/20 text-xs font-semibold text-[#1C1B1A] dark:text-gray-200 hover:border-[#8E6334] hover:text-[#8E6334] dark:hover:border-[#DE9B60] dark:hover:text-[#DE9B60] transition-all disabled:opacity-25 disabled:pointer-events-none flex items-center gap-1.5 cursor-pointer"  aria-label="Bước trước">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                                            <span class="hidden sm:inline">Trước</span>
-                                        </button>
-
-                                        <span class="text-xs font-mono font-bold text-[#8E6334] dark:text-[#DE9B60] px-2 py-1 rounded-md bg-[#8E6334]/10 dark:bg-[#DE9B60]/15">
-                                            03 / 07
-                                        </span>
-
-                                        <button type="button" onclick="nextMansionStep()" class="px-3.5 py-1.5 rounded-full bg-[#8E6334] dark:bg-[#DE9B60] text-white dark:text-[#0A0A0A] text-xs font-bold shadow-sm hover:opacity-90 transition-all flex items-center gap-1.5 cursor-pointer" aria-label="Bước tiếp theo">
-                                            <span>Bước tiếp</span>
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- BƯỚC 4: S -->
-                            <div id="step-card-4" data-step="4" class="mansion-step-card upcoming">
-                                <div class="flex items-center justify-between pb-3 border-b border-black/5 dark:border-white/10">
-                                    <span class="step-num-badge font-sans text-xs font-bold tracking-[0.25em] uppercase px-3.5 py-1 rounded-full">BƯỚC 04 / 07</span>
-                                    <span class="font-serif text-3xl sm:text-4xl font-light text-[#8E6334] dark:text-[#DE9B60]">S</span>
-                                </div>
-                                <div class="space-y-3 my-auto py-2">
-                                    <span class="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] block">Chạm khắc & Vật liệu</span>
-                                    <h3 class="font-serif text-2xl sm:text-3xl font-medium leading-snug step-card-title">
-                                        SCULPT – Chạm Khắc & Giám Tuyển Vật Liệu Độc Bản
-                                    </h3>
-                                    <p class="font-light text-sm sm:text-[15px] leading-relaxed step-card-desc">
-                                        Gọt giũa và hoàn thiện chi tiết đến từng milimet. Chúng tôi trực tiếp đồng hành cùng gia chủ tuyển chọn những khối đá cẩm thạch tự nhiên, thớ gỗ quý lâu năm và hệ vách kính vượt khổ, biến mỗi chi tiết thô ráp thành một tác phẩm điêu khắc sống động.
-                                    </p>
-                                    <div class="space-y-2 pt-1 border-t border-black/5 dark:border-white/10">
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Giám tuyển vật liệu quý hiếm từ các mỏ đá tự nhiên và xưởng thủ công Ý, Pháp</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Mô phỏng chuyển động ánh sáng tự nhiên và nhân tạo 3D chân thực theo thời gian thực</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Kiểm soát hồ sơ thiết kế kỹ thuật chi tiết, triệt tiêu mọi rủi ro và xung đột thi công</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- BẢNG ĐIỀU KHIỂN CHUYỂN BƯỚC TRỰC QUAN TRÊN THẺ -->
-                                <div class="pt-3 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                                    <a href="#form-tu-van" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#8E6334] dark:text-[#DE9B60] hover:underline group">
-                                        <span>Tư vấn giai đoạn này</span>
-                                        <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
-                                    </a>
-
-                                    <!-- Cụm nút chuyển bước Trước / Sau -->
-                                    <div class="flex items-center justify-end gap-2 shrink-0">
-                                        <button type="button" onclick="prevMansionStep()" class="px-3 py-1.5 rounded-full border border-black/15 dark:border-white/20 text-xs font-semibold text-[#1C1B1A] dark:text-gray-200 hover:border-[#8E6334] hover:text-[#8E6334] dark:hover:border-[#DE9B60] dark:hover:text-[#DE9B60] transition-all disabled:opacity-25 disabled:pointer-events-none flex items-center gap-1.5 cursor-pointer"  aria-label="Bước trước">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                                            <span class="hidden sm:inline">Trước</span>
-                                        </button>
-
-                                        <span class="text-xs font-mono font-bold text-[#8E6334] dark:text-[#DE9B60] px-2 py-1 rounded-md bg-[#8E6334]/10 dark:bg-[#DE9B60]/15">
-                                            04 / 07
-                                        </span>
-
-                                        <button type="button" onclick="nextMansionStep()" class="px-3.5 py-1.5 rounded-full bg-[#8E6334] dark:bg-[#DE9B60] text-white dark:text-[#0A0A0A] text-xs font-bold shadow-sm hover:opacity-90 transition-all flex items-center gap-1.5 cursor-pointer" aria-label="Bước tiếp theo">
-                                            <span>Bước tiếp</span>
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- BƯỚC 5: I -->
-                            <div id="step-card-5" data-step="5" class="mansion-step-card upcoming">
-                                <div class="flex items-center justify-between pb-3 border-b border-black/5 dark:border-white/10">
-                                    <span class="step-num-badge font-sans text-xs font-bold tracking-[0.25em] uppercase px-3.5 py-1 rounded-full">BƯỚC 05 / 07</span>
-                                    <span class="font-serif text-3xl sm:text-4xl font-light text-[#8E6334] dark:text-[#DE9B60]">I</span>
-                                </div>
-                                <div class="space-y-3 my-auto py-2">
-                                    <span class="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] block">Giám sát Hiện thực</span>
-                                    <h3 class="font-serif text-2xl sm:text-3xl font-medium leading-snug step-card-title">
-                                        IMPRINT – Ghi Dấu Giám Sát & Hiện Thực Hóa Thi Công
-                                    </h3>
-                                    <p class="font-light text-sm sm:text-[15px] leading-relaxed step-card-desc">
-                                        Hiện thực hóa bản vẽ tinh xảo mà không bị hao hụt hay sai lệch. Đội ngũ chuyên gia của Khởi Minh hiện diện trên công trường, thực hiện quyền giám sát tác giả độc lập và khắt khe kiểm định từng mối nối, ron đá, lớp hoàn thiện của các nhà thầu thi công.
-                                    </p>
-                                    <div class="space-y-2 pt-1 border-t border-black/5 dark:border-white/10">
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Giám sát tác giả độc lập, bảo vệ 100% quyền lợi và tối ưu ngân sách cho gia chủ</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Nghiệm thu từng hạng mục mẫu thực tế (Mock-up 1:1) trước khi thi công đại trà</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Kiểm soát sai số hoàn thiện cơ khí và bề mặt ở mức khắt khe nhất (< 2mm)</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- BẢNG ĐIỀU KHIỂN CHUYỂN BƯỚC TRỰC QUAN TRÊN THẺ -->
-                                <div class="pt-3 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                                    <a href="#form-tu-van" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#8E6334] dark:text-[#DE9B60] hover:underline group">
-                                        <span>Tư vấn giai đoạn này</span>
-                                        <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
-                                    </a>
-
-                                    <!-- Cụm nút chuyển bước Trước / Sau -->
-                                    <div class="flex items-center justify-end gap-2 shrink-0">
-                                        <button type="button" onclick="prevMansionStep()" class="px-3 py-1.5 rounded-full border border-black/15 dark:border-white/20 text-xs font-semibold text-[#1C1B1A] dark:text-gray-200 hover:border-[#8E6334] hover:text-[#8E6334] dark:hover:border-[#DE9B60] dark:hover:text-[#DE9B60] transition-all disabled:opacity-25 disabled:pointer-events-none flex items-center gap-1.5 cursor-pointer"  aria-label="Bước trước">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                                            <span class="hidden sm:inline">Trước</span>
-                                        </button>
-
-                                        <span class="text-xs font-mono font-bold text-[#8E6334] dark:text-[#DE9B60] px-2 py-1 rounded-md bg-[#8E6334]/10 dark:bg-[#DE9B60]/15">
-                                            05 / 07
-                                        </span>
-
-                                        <button type="button" onclick="nextMansionStep()" class="px-3.5 py-1.5 rounded-full bg-[#8E6334] dark:bg-[#DE9B60] text-white dark:text-[#0A0A0A] text-xs font-bold shadow-sm hover:opacity-90 transition-all flex items-center gap-1.5 cursor-pointer" aria-label="Bước tiếp theo">
-                                            <span>Bước tiếp</span>
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- BƯỚC 6: O -->
-                            <div id="step-card-6" data-step="6" class="mansion-step-card upcoming">
-                                <div class="flex items-center justify-between pb-3 border-b border-black/5 dark:border-white/10">
-                                    <span class="step-num-badge font-sans text-xs font-bold tracking-[0.25em] uppercase px-3.5 py-1 rounded-full">BƯỚC 06 / 07</span>
-                                    <span class="font-serif text-3xl sm:text-4xl font-light text-[#8E6334] dark:text-[#DE9B60]">O</span>
-                                </div>
-                                <div class="space-y-3 my-auto py-2">
-                                    <span class="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] block">Giám tuyển Nghệ thuật</span>
-                                    <h3 class="font-serif text-2xl sm:text-3xl font-medium leading-snug step-card-title">
-                                        OUTFIT – Điểm Trang Giám Tuyển & Nghệ Thuật Đa Giác Quan
-                                    </h3>
-                                    <p class="font-light text-sm sm:text-[15px] leading-relaxed step-card-desc">
-                                        Nâng tầm không gian sống thành một bảo tàng nghệ thuật tư nhân. Chúng tôi lựa chọn và sắp đặt từng món đồ nội thất may đo độc bản (Bespoke), tác phẩm hội họa, điêu khắc, kết hợp kịch bản mùi hương và âm học chạm tới mọi giác quan của người thưởng lãm.
-                                    </p>
-                                    <div class="space-y-2 pt-1 border-t border-black/5 dark:border-white/10">
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Giám tuyển tác phẩm nghệ thuật, tranh & tượng điêu khắc có chứng chỉ xuất xứ quốc tế</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Nội thất thửa riêng bespoke mang chữ ký và monogram độc quyền của gia chủ</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Hệ thống kịch bản chiếu sáng nghệ thuật và hương thơm tư gia độc bản</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- BẢNG ĐIỀU KHIỂN CHUYỂN BƯỚC TRỰC QUAN TRÊN THẺ -->
-                                <div class="pt-3 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                                    <a href="#form-tu-van" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#8E6334] dark:text-[#DE9B60] hover:underline group">
-                                        <span>Tư vấn giai đoạn này</span>
-                                        <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
-                                    </a>
-
-                                    <!-- Cụm nút chuyển bước Trước / Sau -->
-                                    <div class="flex items-center justify-end gap-2 shrink-0">
-                                        <button type="button" onclick="prevMansionStep()" class="px-3 py-1.5 rounded-full border border-black/15 dark:border-white/20 text-xs font-semibold text-[#1C1B1A] dark:text-gray-200 hover:border-[#8E6334] hover:text-[#8E6334] dark:hover:border-[#DE9B60] dark:hover:text-[#DE9B60] transition-all disabled:opacity-25 disabled:pointer-events-none flex items-center gap-1.5 cursor-pointer"  aria-label="Bước trước">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                                            <span class="hidden sm:inline">Trước</span>
-                                        </button>
-
-                                        <span class="text-xs font-mono font-bold text-[#8E6334] dark:text-[#DE9B60] px-2 py-1 rounded-md bg-[#8E6334]/10 dark:bg-[#DE9B60]/15">
-                                            06 / 07
-                                        </span>
-
-                                        <button type="button" onclick="nextMansionStep()" class="px-3.5 py-1.5 rounded-full bg-[#8E6334] dark:bg-[#DE9B60] text-white dark:text-[#0A0A0A] text-xs font-bold shadow-sm hover:opacity-90 transition-all flex items-center gap-1.5 cursor-pointer" aria-label="Bước tiếp theo">
-                                            <span>Bước tiếp</span>
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- BƯỚC 7: N -->
-                            <div id="step-card-7" data-step="7" class="mansion-step-card upcoming">
-                                <div class="flex items-center justify-between pb-3 border-b border-black/5 dark:border-white/10">
-                                    <span class="step-num-badge font-sans text-xs font-bold tracking-[0.25em] uppercase px-3.5 py-1 rounded-full">BƯỚC 07 / 07</span>
-                                    <span class="font-serif text-3xl sm:text-4xl font-light text-[#8E6334] dark:text-[#DE9B60]">N</span>
-                                </div>
-                                <div class="space-y-3 my-auto py-2">
-                                    <span class="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-[#8E6334] dark:text-[#DE9B60] block">Bồi đắp Truyền đời</span>
-                                    <h3 class="font-serif text-2xl sm:text-3xl font-medium leading-snug step-card-title">
-                                        NOURISH – Bồi Đắp Vận Hành & Bảo Tồn Di Sản Truyền Đời
-                                    </h3>
-                                    <p class="font-light text-sm sm:text-[15px] leading-relaxed step-card-desc">
-                                        Một dinh thự chỉ thực sự hoàn thiện khi được vận hành êm ái và tràn đầy sinh khí. Khởi Minh chuyển giao toàn bộ cẩm nang kỹ thuật, đào tạo đội ngũ quản gia và định kỳ đồng hành bảo dưỡng, giữ cho công trình luôn bền đẹp và gia tăng giá trị qua nhiều thế hệ.
-                                    </p>
-                                    <div class="space-y-2 pt-1 border-t border-black/5 dark:border-white/10">
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Bàn giao "Sổ tay Vận hành Dinh thự" và hồ sơ kỹ thuật số hoàn công chi tiết</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Quy trình bảo trì định kỳ cho vật liệu xa xỉ và hệ thống cơ điện điều khiển thông minh</span>
-                                        </div>
-                                        <div class="flex items-start gap-2.5 text-xs sm:text-sm font-light">
-                                            <span class="text-[#DE9B60] mt-0.5 font-bold">✦</span>
-                                            <span>Đồng hành cố vấn nâng cấp và làm mới không gian theo từng cột mốc phát triển của gia đình</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- BẢNG ĐIỀU KHIỂN CHUYỂN BƯỚC TRỰC QUAN TRÊN THẺ -->
-                                <div class="pt-3 border-t border-black/5 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-                                    <a href="#form-tu-van" class="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-[#8E6334] dark:text-[#DE9B60] hover:underline group">
-                                        <span>Tư vấn giai đoạn này</span>
-                                        <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
-                                    </a>
-
-                                    <!-- Cụm nút chuyển bước Trước / Sau -->
-                                    <div class="flex items-center justify-end gap-2 shrink-0">
-                                        <button type="button" onclick="prevMansionStep()" class="px-3 py-1.5 rounded-full border border-black/15 dark:border-white/20 text-xs font-semibold text-[#1C1B1A] dark:text-gray-200 hover:border-[#8E6334] hover:text-[#8E6334] dark:hover:border-[#DE9B60] dark:hover:text-[#DE9B60] transition-all disabled:opacity-25 disabled:pointer-events-none flex items-center gap-1.5 cursor-pointer"  aria-label="Bước trước">
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-                                            <span class="hidden sm:inline">Trước</span>
-                                        </button>
-
-                                        <span class="text-xs font-mono font-bold text-[#8E6334] dark:text-[#DE9B60] px-2 py-1 rounded-md bg-[#8E6334]/10 dark:bg-[#DE9B60]/15">
-                                            07 / 07
-                                        </span>
-
-                                        <button type="button" onclick="document.getElementById('form-tu-van')?.scrollIntoView({behavior:'smooth'})" class="px-3.5 py-1.5 rounded-full bg-[#8E6334] dark:bg-[#DE9B60] text-white dark:text-[#0A0A0A] text-xs font-bold shadow-sm hover:opacity-90 transition-all flex items-center gap-1.5 cursor-pointer" aria-label="Bước tiếp theo">
-                                            <span>Đặt lịch tư vấn</span>
-                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+            </article>
+            <article class="ms-card" data-chap="1">
+                <video class="vv-autoplay" muted loop playsinline preload="metadata" poster="assets/video/v-top.jpg" aria-label="Navigate"><source src="assets/video/v-top.mp4" type="video/mp4"></video>
+                <span class="ms-shade"></span>
+                <span class="ms-chap">Ý tưởng</span>
+                <span class="ms-letter" aria-hidden="true">N</span>
+                <div class="ms-body">
+                    <span class="ms-n">03 / 07</span>
+                    <h3 class="font-serif">Navigate</h3>
+                    <em>Dẫn lối</em>
+                    <p>Định hướng thiết kế — vạch đường lối thẩm mỹ và công năng độc bản.</p>
                 </div>
-
+            </article>
+            <article class="ms-card" data-chap="1">
+                <img src="assets/img/vv-165.jpg" alt="Sculpt" loading="lazy">
+                <span class="ms-shade"></span>
+                
+                <span class="ms-letter" aria-hidden="true">S</span>
+                <div class="ms-body">
+                    <span class="ms-n">04 / 07</span>
+                    <h3 class="font-serif">Sculpt</h3>
+                    <em>Chạm khắc</em>
+                    <p>Tối ưu thiết kế — gọt giũa từng đường nét, chọn lọc vật liệu.</p>
+                </div>
+            </article>
+            <article class="ms-card" data-chap="2">
+                <img src="assets/img/vv-163.jpg" alt="Imprint" loading="lazy">
+                <span class="ms-shade"></span>
+                <span class="ms-chap">Hoàn thiện</span>
+                <span class="ms-letter" aria-hidden="true">I</span>
+                <div class="ms-body">
+                    <span class="ms-n">05 / 07</span>
+                    <h3 class="font-serif">Imprint</h3>
+                    <em>Ghi dấu</em>
+                    <p>Tối ưu thi công — giám sát khắt khe, giữ trọn nguyên bản.</p>
+                </div>
+            </article>
+            <article class="ms-card" data-chap="2">
+                <video class="vv-autoplay" muted loop playsinline preload="metadata" poster="assets/video/v-dining.jpg" aria-label="Outfit"><source src="assets/video/v-dining.mp4" type="video/mp4"></video>
+                <span class="ms-shade"></span>
+                
+                <span class="ms-letter" aria-hidden="true">O</span>
+                <div class="ms-body">
+                    <span class="ms-n">06 / 07</span>
+                    <h3 class="font-serif">Outfit</h3>
+                    <em>Điểm trang</em>
+                    <p>Tối ưu trải nghiệm — nội thất và nghệ thuật khơi dậy xúc cảm.</p>
+                </div>
+            </article>
+            <article class="ms-card" data-chap="2">
+                <video class="vv-autoplay" muted loop playsinline preload="metadata" poster="assets/video/v-lake.jpg" aria-label="Nourish"><source src="assets/video/v-lake.mp4" type="video/mp4"></video>
+                <span class="ms-shade"></span>
+                
+                <span class="ms-letter" aria-hidden="true">N</span>
+                <div class="ms-body">
+                    <span class="ms-n">07 / 07</span>
+                    <h3 class="font-serif">Nourish</h3>
+                    <em>Bồi đắp</em>
+                    <p>Tối ưu vận hành — đồng hành bảo tồn, nâng tầm giá trị theo thời gian.</p>
+                </div>
+            </article>
+                <span class="ms-end" aria-hidden="true"></span>
             </div>
-
+            <div class="ms-wrap ms-ctrl">
+                <div class="ms-count"><b id="msNow">01</b> / 07</div>
+                <div class="ms-bar"><i id="msBar"></i></div>
+                <div class="ms-arrows">
+                    <button type="button" onclick="msStep(-1)" aria-label="Bước trước">&larr;</button>
+                    <button type="button" onclick="msStep(1)" aria-label="Bước tiếp">&rarr;</button>
+                </div>
+            </div>
+            <div class="ms-cta"><a href="#form-tu-van" class="km-btn-base km-btn-mansion-hero"><span>Đặt lịch cố vấn &rarr;</span></a></div>
         </section>
 
         <!-- 6. Vì sao chọn Khoi Minh Homestyling (Bố cục Mới & Trải nghiệm Tương tác) -->
@@ -4381,6 +4021,24 @@
             var s = document.getElementById('vvStrip');
             if (s) s.scrollBy({ left: dir * Math.max(320, s.clientWidth * 0.7), behavior: 'smooth' });
         };
+    })();
+    </script>
+    <script>
+    /* 7 bước MANSION: băng chuyền ngang */
+    (function(){
+        function ready(f){ if(document.readyState!=='loading') f(); else document.addEventListener('DOMContentLoaded',f); }
+        ready(function(){
+            var tr=document.getElementById('msTrack'); if(!tr) return;
+            var cards=[].slice.call(tr.querySelectorAll('.ms-card'));
+            function pad(){ return parseFloat(getComputedStyle(tr).paddingLeft)||0; }
+            function cur(){ var best=0,bd=1e9,x=tr.scrollLeft+pad(); cards.forEach(function(c,i){ var d=Math.abs(c.offsetLeft-x); if(d<bd){bd=d;best=i;} }); if(tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-4) best=cards.length-1; return best; }
+            function upd(){ var i=cur(); document.getElementById('msNow').textContent='0'+(i+1); document.getElementById('msBar').style.width=((i+1)/cards.length*100)+'%'; var ch=cards[i].getAttribute('data-chap'); document.querySelectorAll('.ms-tab').forEach(function(t){ t.classList.toggle('on',t.getAttribute('data-chap')===ch); }); }
+            var tk=false; tr.addEventListener('scroll',function(){ if(!tk){ tk=true; requestAnimationFrame(function(){ upd(); tk=false; }); } },{passive:true});
+            function to(i){ i=Math.max(0,Math.min(cards.length-1,i)); tr.scrollTo({left:cards[i].offsetLeft-pad(),behavior:'smooth'}); }
+            window.msStep=function(d){ to(cur()+d); };
+            window.msGoChapter=function(k){ for(var i=0;i<cards.length;i++){ if(+cards[i].getAttribute('data-chap')===k){ to(i); break; } } };
+            upd();
+        });
     })();
     </script>
 </body>
